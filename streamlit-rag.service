@@ -1,0 +1,15 @@
+[Unit]
+Description=Streamlit Application
+After=network.target
+
+[Service]
+User=root
+Group=root
+Environment=STREAMLIT_BROWSER_GATHERUSAGESTATS=false
+WorkingDirectory=/root/ollama-RAAG/2-ollama-privateGPT-chat-with-docs
+ExecStart=/bin/bash -c 'source /root/ollama-RAAG/.venv/bin/activate && cd /root/ollama-RAAG/2-ollama-privateGPT-chat-with-docs && streamlit run /root/ollama-RAAG/2-ollama-privateGPT-chat-with-docs/app2.py'
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
